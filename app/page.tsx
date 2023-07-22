@@ -1,14 +1,30 @@
 import { Hero } from '@/components'
 import Image from 'next/image'
-import {SearchBar, CustomFilter, CarCard } from '@/components'
+import {SearchBar, CustomFilter, CarCard, ShowMore } from '@/components'
 import { fetchCars } from '@/utils'
-export default async function Home() {
+import { HomeProps } from '@/types'
+import { fuels, yearsOfProduction } from "@/constants";
 
-const allCars = await fetchCars();
+export default async function Home({ searchParams }: HomeProps) {
+const allCars = await fetchCars({
+  manufacturer: searchParams.manufacturer || "",
+  year: searchParams.year || 2022,
+  fuel: searchParams.fuel || "",
+  limit: searchParams.limit || 10,
+  model: searchParams.model || "",
+});
+
 const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
   return (
     <main className='overflow-hidden'>
     <Hero />
+
+    <div className='mt-12 padding-x padding-y max-width' id='discover'>
+      <div className='home__text-container'>
+        <h1 className='text-4xl font-extrabold'>Services</h1>
+        <p>We invite you to try our services and we personnaly guarentee that you will e completly satisfied.</p>
+      </div>
+    </div>
 
     <div className='mt-12 padding-x padding-y max-width' id='discover'>
       <div className='home__text-container'>
@@ -20,7 +36,8 @@ const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
         <SearchBar />
 
         <div className='home__filter-container'>
-      
+          <CustomFilter title='Fuels' options={fuels}/>
+          <CustomFilter title='Years' options={yearsOfProduction}/>
         </div>
       </div>
 
@@ -31,7 +48,10 @@ const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
               <CarCard car={car} />
             ))}
           </div>
-
+          <ShowMore
+          pageNumber={(searchParams.limit || 10) / 10}
+          isNext={(searchParams.limit || 10) > allCars.length}
+          />
         </section>
       ) : (
         <div className='home__error-container'>
@@ -39,6 +59,14 @@ const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
           <p>{allCars?.message}</p>
         </div>
       )}
+    </div>
+    
+
+    <div className='mt-12 padding-x padding-y max-width' id='discover'>
+      <div className='home__text-container'>
+        <h1 className='text-4xl font-extrabold'>Only today 75$/day</h1>
+        <p>We invite you to try our services and we personnaly guarentee that you will e completly satisfied.</p>
+      </div>
     </div>
   </main>
   )

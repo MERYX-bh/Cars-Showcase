@@ -1,6 +1,7 @@
 "use client"
 import Image from 'next/image'
 import { CustomButton } from '@/components'
+import { generateCarImageUrl } from '@/utils'
 
 const Hero = () => {
     const handleScroll = () => {
@@ -18,7 +19,7 @@ const Hero = () => {
             booking process.
         </p>
         <CustomButton
-        title="Explore Cars"
+        title="Find your car"
           containerStyles="bg-primary-blue text-white rounded-full mt-10"
           handleClick={handleScroll}/>
         </div>
