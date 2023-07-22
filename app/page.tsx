@@ -21,8 +21,8 @@ const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
 
     <div className='mt-12 padding-x padding-y max-width' id='discover'>
       <div className='home__text-container'>
-        <h1 className='text-4xl font-extrabold'>Services</h1>
-        <p>We invite you to try our services and we personnaly guarentee that you will e completly satisfied.</p>
+        <h1 className='text-xl font-extrabold'>Services</h1>
+        <p>We invite you to try our services and we personnaly guarentee that you will be completly satisfied.</p>
       </div>
       <div className='grid 2xl:grid-cols-4 xl:grid-cols-2 md:grid-cols-2 grid-cols-1 w-full gap-8 pt-14'>
       {services.map((service, index) => (
@@ -65,14 +65,7 @@ const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
         </div>
       )}
     </div>
-    
-
-    <div className='mt-12 padding-x padding-y max-width' id='discover'>
-      <div className='home__text-container'>
-        <h1 className='text-4xl font-extrabold'>Only today 75$/day</h1>
-        <p>We invite you to try our services and we personnaly guarentee that you will e completly satisfied.</p>
-      </div>
-    </div>
+  
   </main>
   )
 }
