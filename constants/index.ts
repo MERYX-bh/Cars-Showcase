@@ -100,3 +100,21 @@ export const footerLinks = [
   },
 ];
 
+export const services = [
+  {
+    "title": "Airport Transports",
+    "values": "Reliable car rental for seamless airport transfers, ensuring comfort and punctuality for a stress-free travel experience."
+  },
+  {
+    "title": "Intercity Trips",
+    "values": "Explore cities with ease using our car rental service, offering comfortable vehicles and flexible options for intercity travel."
+  },
+  {
+    "title": "Weddings Events",
+    "values": "Elevate your special day with our elegant car rental service, providing luxurious vehicles to make weddings unforgettable."
+  },
+  {
+    "title": "Business Meetings",
+    "values": "Impress clients with our sophisticated car rental service, offering professional chauffeurs and top-notch vehicles for seamless business transportation."
+  }
+];

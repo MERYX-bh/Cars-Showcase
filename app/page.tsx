@@ -1,9 +1,9 @@
-import { Hero } from '@/components'
+import { Hero, ServiceCard } from '@/components'
 import Image from 'next/image'
 import {SearchBar, CustomFilter, CarCard, ShowMore } from '@/components'
 import { fetchCars } from '@/utils'
 import { HomeProps } from '@/types'
-import { fuels, yearsOfProduction } from "@/constants";
+import { fuels, yearsOfProduction, services } from "@/constants";
 
 export default async function Home({ searchParams }: HomeProps) {
 const allCars = await fetchCars({
@@ -23,6 +23,11 @@ const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
       <div className='home__text-container'>
         <h1 className='text-4xl font-extrabold'>Services</h1>
         <p>We invite you to try our services and we personnaly guarentee that you will e completly satisfied.</p>
+      </div>
+      <div className='grid 2xl:grid-cols-4 xl:grid-cols-2 md:grid-cols-2 grid-cols-1 w-full gap-8 pt-14'>
+      {services.map((service, index) => (
+        <ServiceCard key={index} title={service.title} value={service.values} />
+      ))}
       </div>
     </div>
 
