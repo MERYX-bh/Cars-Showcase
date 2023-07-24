@@ -8,6 +8,9 @@ import CarCard from "./CarCard";
 import CarDetails from "./CarDetails";
 import ShowMore from "./ShowMore";
 import ServiceCard from "./ServiceCard";
+import BookCar from "./BookCar";
+import Testimonials from "./Testimonials";
+import Team from "./Team";
 
 export {
     Hero,
@@ -20,4 +23,7 @@ export {
     CarDetails,
     ShowMore,
     ServiceCard,
+    BookCar,
+    Testimonials,
+    Team
 }

@@ -1,6 +1,5 @@
-import { Hero, ServiceCard } from '@/components'
 import Image from 'next/image'
-import {SearchBar, CustomFilter, CarCard, ShowMore } from '@/components'
+import {SearchBar, CustomFilter, CarCard, ShowMore,Hero, ServiceCard, Testimonials  } from '@/components'
 import { fetchCars } from '@/utils'
 import { HomeProps } from '@/types'
 import { fuels, yearsOfProduction, services } from "@/constants";
@@ -17,11 +16,11 @@ const allCars = await fetchCars({
 const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
   return (
     <main className='overflow-hidden'>
-    <Hero />
-
+    <Hero /> 
+    
     <div className='mt-12 padding-x padding-y max-width' id='discover'>
       <div className='home__text-container'>
-        <h1 className='text-xl font-extrabold'>Services</h1>
+        <h1 className='text-4xl font-extrabold'>Services</h1>
         <p>We invite you to try our services and we personnaly guarentee that you will be completly satisfied.</p>
       </div>
       <div className='grid 2xl:grid-cols-4 xl:grid-cols-2 md:grid-cols-2 grid-cols-1 w-full gap-8 pt-14'>
@@ -64,6 +63,14 @@ const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
           <p>{allCars?.message}</p>
         </div>
       )}
+    </div>
+    <div className='mt-12 padding-x padding-y max-width' id='discover'>
+      <div className='home__text-container'>
+        <h1 className='text-4xl font-extrabold'>Client's Testimonials</h1>
+        <p>Discover the positive impact we've made on the our clients by reading through their testimonials. Our clients have experienced our service and results, and they're eager to share their positive experiences with you.
+        </p>
+      </div>
+      <Testimonials/>
     </div>
   
   </main>
